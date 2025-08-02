@@ -5,8 +5,9 @@
   "main": "talkdrove.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node talkdrove.js",
-    "bytemd": "pm2 start talkdrove.js --attach --max-memory-restart 490M",
+    "start": "node Hamza-override.js",
+    "start-original": "node talkdrove.js",
+    "bytemd": "pm2 start Hamza-override.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
   "keywords": [

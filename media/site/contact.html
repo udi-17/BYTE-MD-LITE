@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צור קשר - BYTE-LITE</title>
+    <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/BYTE-MD-LITE.jpeg" type="image/x-icon" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BYTE-LITE</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="/">דף הבית</a></li>
+                <li><a href="/return-policy.html">מדיניות החזרה</a></li>
+                <li><a href="/contact.html">צור קשר</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1>צור קשר</h1>
+                <p>נשמח לשמוע מכם ולענות על כל שאלה</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>פרטי התקשרות</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h3>📧 דוא"ל</h3>
+                        <p>support@byte-lite.com</p>
+                        <p>info@byte-lite.com</p>
+                    </div>
+                    <div>
+                        <h3>📞 טלפון</h3>
+                        <p>1-800-BYTE-LITE</p>
+                        <p>03-1234567</p>
+                    </div>
+                    <div>
+                        <h3>📍 כתובת</h3>
+                        <p>רחוב הטכנולוגיה 123</p>
+                        <p>תל אביב, ישראל</p>
+                    </div>
+                    <div>
+                        <h3>🕐 שעות פעילות</h3>
+                        <p>ראשון - חמישי: 9:00-18:00</p>
+                        <p>שישי: 9:00-13:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>שלחו לנו הודעה</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">שם מלא *</label>
+                        <input type="text" id="name" name="name" required placeholder="הזינו את שמכם המלא">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">כתובת דוא"ל *</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">מספר טלפון</label>
+                        <input type="tel" id="phone" name="phone" placeholder="050-1234567">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">נושא הפנייה *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="במה נוכל לעזור?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">הודעה *</label>
+                        <textarea id="message" name="message" required placeholder="כתבו את הודעתכם כאן..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">שלח הודעה</button>
+                </form>
+            </div>
+            
+            <div class="content-section">
+                <h2>שאלות נפוצות</h2>
+                <h3>מהו זמן התגובה הצפוי?</h3>
+                <p>אנו משתדלים לענות על כל פנייה תוך 24 שעות עבודה.</p>
+                
+                <h3>האם אפשר לקבוע פגישה פרונטלית?</h3>
+                <p>בהחלט! ניתן לתאם פגישה במשרדינו בתל אביב בתיאום מראש.</p>
+                
+                <h3>האם יש תמיכה טכנית בסופי שבוע?</h3>
+                <p>תמיכה טכנית דחופה זמינה 24/7 דרך מערכת הטיקטים שלנו.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 BYTE-LITE. כל הזכויות שמורות.</p>
+            <p>פותח עם ❤️ על ידי צוות BYTE-LITE</p>
+        </div>
+    </footer>
+    
+    <script>
+        // טיפול בשליחת הטופס
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // כאן תוכל להוסיף קוד לשליחת הטופס לשרת
+            // לדוגמה: שליחה ל-API או שירות דוא"ל
+            
+            alert('תודה על פנייתך! נחזור אליך בהקדם האפשרי.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
