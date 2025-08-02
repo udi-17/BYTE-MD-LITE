@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node talkdrove.js",
+    "website": "node server.js",
     "bytemd": "pm2 start talkdrove.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
@@ -19,11 +20,11 @@
   ],
   "author": "Hamza",
   "license": "ISC",
-    "dependencies": {
+  "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@hapi/boom": "^10.0.1",
     "@types/node": "^18.0.6",
-    "@whiskeysockets/baileys": "github:Luffy2ndAccount/Baileys",
+    "@whiskeysockets/baileys": "^6.7.8",
     "@xaviabot/fb-downloader": "^1.0.14",
     "aptoide-scraper": "^1.0.1",
     "axios": "^1.4.0",
@@ -33,6 +34,7 @@
     "chalk": "^5.3.0",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.3.1",
+    "express": "^4.21.2",
     "ffmpeg": "^0.0.4",
     "file-type": "16.5.4",
     "fluent-ffmpeg": "^2.1.2",
@@ -52,9 +54,9 @@
     "node-cron": "^3.0.3",
     "node-fetch": "^3.2.6",
     "node-id3": "^0.2.6",
+    "performance-now": "^2.1.0",
     "pg": "^8.11.2",
     "pino": "^8.15.0",
-    "performance-now": "^2.1.0",
     "qrcode-terminal": "^0.12.0",
     "readline": "^1.3.0",
     "sequelize": "^6.32.1",
@@ -65,8 +67,7 @@
     "wa-sticker-formatter": "^4.4.4",
     "youtube-yts": "^2.0.0",
     "youtubedl-core": "^4.11.7",
-    "yt-search": "^2.10.4",    
-    "ytdl-core": "github:HyHamza/TalkDrove-yt-dl-core"
-
+    "yt-search": "^2.10.4",
+    "ytdl-core": "^4.11.5"
   }
 }
