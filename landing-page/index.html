@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toni's Pizzas - הפיצה הטובה ביותר בעיר</title>
+    <meta name="description" content="ברוכים הבאים ל-Toni's Pizzas - פיצות איכותיות, טריות ומוכנות באהבה. משלוחים מהירים, מגוון טעמים וחומרי גלם משובחים.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Toni's Pizzas" class="logo-img">
+                        <span class="logo-text">Toni's Pizzas</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link">בית</a></li>
+                        <li><a href="#menu" class="nav-link">תפריט</a></li>
+                        <li><a href="#about" class="nav-link">אודות</a></li>
+                        <li><a href="#gallery" class="nav-link">גלריה</a></li>
+                        <li><a href="#contact" class="nav-link">צור קשר</a></li>
+                    </ul>
+                    <div class="nav-cta">
+                        <a href="tel:123-456-7890" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> הזמן עכשיו
+                        </a>
+                    </div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fadeIn">
+                הפיצה הטובה ביותר בעיר
+                <span class="highlight">מחכה לך!</span>
+            </h1>
+            <p class="hero-subtitle animate-slideUp">
+                פיצות איכותיות, טריות ומוכנות באהבה
+            </p>
+            <div class="hero-buttons animate-slideUp">
+                <a href="#menu" class="btn btn-primary btn-lg">
+                    <i class="fas fa-pizza-slice"></i> ראה תפריט
+                </a>
+                <a href="tel:123-456-7890" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-phone"></i> הזמן עכשיו
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/hero-pizza.png" alt="פיצה טרייה וטעימה">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>משלוחים מהירים</h3>
+                    <p>משלוח חם ומהיר עד לבית שלך תוך 30 דקות או פחות</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>חומרי גלם איכותיים</h3>
+                    <p>אנו משתמשים רק בחומרי הגלם הטריים והאיכותיים ביותר</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>מגוון רחב</h3>
+                    <p>תפריט עשיר הכולל פיצות, פסטות, סלטים ועוד</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section id="menu" class="menu-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">התפריט שלנו</h2>
+                <p class="section-subtitle">טעמים שתאהבו, במחירים שתעריכו</p>
+            </div>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="pizzas">פיצות</button>
+                <button class="category-btn" data-category="pastas">פסטות</button>
+                <button class="category-btn" data-category="salads">סלטים</button>
+                <button class="category-btn" data-category="drinks">שתייה</button>
+            </div>
+            <div class="menu-grid" id="menu-items">
+                <!-- Pizza items -->
+                <div class="menu-item" data-category="pizzas">
+                    <img src="images/pizza-margherita.jpg" alt="פיצה מרגריטה">
+                    <div class="menu-item-content">
+                        <h3>מרגריטה קלאסית</h3>
+                        <p>רוטב עגבניות, מוצרלה טרייה, בזיליקום</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₪45</span>
+                            <button class="btn btn-small">הזמן</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="pizzas">
+                    <img src="images/pizza-pepperoni.jpg" alt="פיצה פפרוני">
+                    <div class="menu-item-content">
+                        <h3>פפרוני מיוחדת</h3>
+                        <p>רוטב עגבניות, מוצרלה, פפרוני חריף</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₪55</span>
+                            <button class="btn btn-small">הזמן</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="pizzas">
+                    <img src="images/pizza-veggie.jpg" alt="פיצה צמחונית">
+                    <div class="menu-item-content">
+                        <h3>ירקות העונה</h3>
+                        <p>רוטב עגבניות, מוצרלה, מגוון ירקות טריים</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₪50</span>
+                            <button class="btn btn-small">הזמן</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-cta">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> ראה תפריט מלא
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">הסיפור שלנו</h2>
+                    <p>
+                        ב-Toni's Pizzas אנחנו מאמינים שפיצה טובה היא יותר מסתם אוכל - היא חוויה. 
+                        מאז 2010, אנחנו מכינים פיצות איכותיות בשיטות מסורתיות איטלקיות, 
+                        עם חומרי גלם טריים ואהבה רבה למקצוע.
+                    </p>
+                    <p>
+                        הבצק שלנו מוכן מדי יום במקום, הרטבים שלנו מיוצרים ממתכונים סודיים משפחתיים, 
+                        והגבינות שלנו מיובאות ישירות מאיטליה. התוצאה? פיצות שתזכרו לעד.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">50,000+</span>
+                            <span class="stat-label">לקוחות מרוצים</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">14</span>
+                            <span class="stat-label">שנות ניסיון</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">חומרים טריים</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/chef.jpg" alt="השף שלנו">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">גלריית תמונות</h2>
+                <p class="section-subtitle">הצצה למטבח שלנו</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery-1.jpg" alt="פיצה טרייה">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-2.jpg" alt="הכנת פיצה">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-3.jpg" alt="תנור פיצה">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-4.jpg" alt="מרכיבים טריים">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-5.jpg" alt="פיצה מוכנה">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-6.jpg" alt="המסעדה שלנו">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">מה הלקוחות אומרים</h2>
+                <p class="section-subtitle">ביקורות של לקוחות מרוצים</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"הפיצה הכי טובה שאכלתי! הבצק פריך, הגבינה נמסה בפה, והשירות מעולה. ממליץ בחום!"</p>
+                        <div class="testimonial-author">
+                            <img src="images/customer-1.jpg" alt="דני כהן">
+                            <div>
+                                <h4>דני כהן</h4>
+                                <span>לקוח קבוע</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"משלוחים תמיד בזמן, פיצה חמה וטעימה. המקום האהוב עלינו להזמנות משפחתיות!"</p>
+                        <div class="testimonial-author">
+                            <img src="images/customer-2.jpg" alt="שרה לוי">
+                            <div>
+                                <h4>שרה לוי</h4>
+                                <span>לקוחה מרוצה</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"מגוון אפשרויות לצמחונים וטבעונים, טעמים מדהימים ומחירים הוגנים. מומלץ!"</p>
+                        <div class="testimonial-author">
+                            <img src="images/customer-3.jpg" alt="יוסי ברק">
+                            <div>
+                                <h4>יוסי ברק</h4>
+                                <span>חובב פיצה</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">צור קשר</h2>
+                <p class="section-subtitle">נשמח לשמוע ממך</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>פרטי התקשרות</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>כתובת</h4>
+                            <p>רחוב הרצל 123, תל אביב</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>טלפון</h4>
+                            <p>123-456-7890</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>אימייל</h4>
+                            <p>info@tonispizzas.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>שעות פעילות</h4>
+                            <p>א'-ה': 11:00-23:00<br>שישי: 11:00-15:00<br>מוצ"ש: 20:00-00:00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <h4>עקבו אחרינו</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>שלחו לנו הודעה</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="שם מלא" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="אימייל" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="טלפון">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="הודעה" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> שלח הודעה
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.8439349039516!2d34.770617015161!3d32.08505508119188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b7e3e5c3c61%3A0x7f0c7f0c7f0c7f0c!2sHerzl%20St%20123%2C%20Tel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1647890123456!5m2!1sen!2sil" 
+                width="100%" 
+                height="400" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>הירשמו לניוזלטר שלנו</h3>
+                <p>קבלו הטבות בלעדיות ועדכונים על מבצעים חמים!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="הכניסו את האימייל שלכם" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> הרשמה
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Toni's Pizzas</h3>
+                    <p>הפיצריה המובילה בישראל, מביאה לכם את הטעמים האותנטיים של איטליה.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>קישורים מהירים</h4>
+                    <ul>
+                        <li><a href="#menu">תפריט</a></li>
+                        <li><a href="#about">אודות</a></li>
+                        <li><a href="#contact">צור קשר</a></li>
+                        <li><a href="#">תנאי שימוש</a></li>
+                        <li><a href="#">מדיניות פרטיות</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>שעות פעילות</h4>
+                    <ul class="hours-list">
+                        <li><span>ראשון - חמישי:</span> 11:00 - 23:00</li>
+                        <li><span>שישי:</span> 11:00 - 15:00</li>
+                        <li><span>מוצאי שבת:</span> 20:00 - 00:00</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>אמצעי תשלום</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                    <p class="delivery-note">
+                        <i class="fas fa-truck"></i> משלוחים חינם בהזמנה מעל ₪100
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Toni's Pizzas. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/972123456789" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
