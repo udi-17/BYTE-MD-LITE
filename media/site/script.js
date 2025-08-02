@@ -182,30 +182,36 @@ if (statsSection) {
 
 // Pizza Animation Enhancement
 document.addEventListener('DOMContentLoaded', () => {
-    const pizzaAnimation = document.querySelector('.pizza-animation');
-    if (pizzaAnimation) {
-        pizzaAnimation.addEventListener('mouseenter', () => {
-            pizzaAnimation.style.animationPlayState = 'paused';
-            pizzaAnimation.style.transform = 'scale(1.1) rotate(15deg)';
+    const pizzaImage = document.querySelector('.hero-pizza-image');
+    if (pizzaImage) {
+        pizzaImage.addEventListener('mouseenter', () => {
+            pizzaImage.style.animationPlayState = 'paused';
+            pizzaImage.style.transform = 'scale(1.1) rotate(5deg)';
         });
         
-        pizzaAnimation.addEventListener('mouseleave', () => {
-            pizzaAnimation.style.animationPlayState = 'running';
-            pizzaAnimation.style.transform = '';
+        pizzaImage.addEventListener('mouseleave', () => {
+            pizzaImage.style.animationPlayState = 'running';
+            pizzaImage.style.transform = '';
         });
     }
 });
 
 // Menu Item Hover Effects
-document.querySelectorAll('.menu-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        const image = item.querySelector('.menu-image');
-        image.style.transform = 'scale(1.2) rotate(10deg)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        const image = item.querySelector('.menu-image');
-        image.style.transform = 'scale(1) rotate(0deg)';
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const image = item.querySelector('.menu-image');
+            if (image) {
+                image.style.transform = 'scale(1.1) rotate(2deg)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const image = item.querySelector('.menu-image');
+            if (image) {
+                image.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
     });
 });
 

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/BYTE-MD-LITE.jpeg" type="image/x-icon">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e63946'/><circle cx='50' cy='50' r='35' fill='%23f4a942'/><circle cx='38' cy='38' r='4' fill='%23c9302c'/><circle cx='62' cy='42' r='3' fill='%23c9302c'/><circle cx='45' cy='60' r='3.5' fill='%23c9302c'/><circle cx='65' cy='58' r='3' fill='%23c9302c'/><circle cx='35' cy='65' r='2.5' fill='%23c9302c'/></svg>" type="image/svg+xml">
 </head>
 <body>
     <!-- Header -->
@@ -19,7 +19,16 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <i class="fas fa-pizza-slice"></i>
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="#e63946" stroke="#fff" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="35" fill="#f4a942"/>
+                        <circle cx="38" cy="38" r="4" fill="#c9302c"/>
+                        <circle cx="62" cy="42" r="3" fill="#c9302c"/>
+                        <circle cx="45" cy="60" r="3.5" fill="#c9302c"/>
+                        <circle cx="65" cy="58" r="3" fill="#c9302c"/>
+                        <circle cx="35" cy="65" r="2.5" fill="#c9302c"/>
+                        <text x="50" y="85" text-anchor="middle" fill="#fff" font-family="Heebo" font-weight="bold" font-size="8">טוני'ס</text>
+                    </svg>
                     <span>טוני'ס פיצה</span>
                 </div>
                 <ul class="nav-menu">
@@ -50,9 +59,10 @@
                 </a>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="pizza-animation">🍕</div>
-        </div>
+                 <div class="hero-image">
+             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="פיצה טוני'ס" class="hero-pizza-image">
+             <div class="pizza-overlay">🍕</div>
+         </div>
     </section>
 
     <!-- Features Section -->
@@ -97,37 +107,37 @@
             <h2 class="section-title">התפריט שלנו</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה מרגריטה" class="menu-image">
                     <h3>פיצה מרגריטה</h3>
                     <p>רוטב עגבניות, מוצרלה טריה ובזיליקום</p>
                     <span class="price">₪45</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה פפרוני" class="menu-image">
                     <h3>פיצה פפרוני</h3>
                     <p>רוטב עגבניות, מוצרלה ופפרוני איכותי</p>
                     <span class="price">₪55</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה וגטריאנית" class="menu-image">
                     <h3>פיצה וגטריאנית</h3>
                     <p>ירקות טריים, זיתים ופטריות</p>
                     <span class="price">₪50</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה אמריקאית" class="menu-image">
                     <h3>פיצה אמריקאית</h3>
                     <p>בשר טחון, בצל, פלפלים וגבינה</p>
                     <span class="price">₪60</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה האוואי" class="menu-image">
                     <h3>פיצה האוואי</h3>
                     <p>חזיר, אננס וגבינה מוצרלה</p>
                     <span class="price">₪58</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-image">🍕</div>
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="פיצה מיוחדת של הבית" class="menu-image">
                     <h3>פיצה מיוחדת של הבית</h3>
                     <p>מרכיבי פרימיום לפי בחירת השף</p>
                     <span class="price">₪65</span>
@@ -217,7 +227,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-pizza-slice"></i>
+                    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="#e63946" stroke="#fff" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="35" fill="#f4a942"/>
+                        <circle cx="38" cy="38" r="4" fill="#c9302c"/>
+                        <circle cx="62" cy="42" r="3" fill="#c9302c"/>
+                        <circle cx="45" cy="60" r="3.5" fill="#c9302c"/>
+                        <circle cx="65" cy="58" r="3" fill="#c9302c"/>
+                        <circle cx="35" cy="65" r="2.5" fill="#c9302c"/>
+                        <text x="50" y="85" text-anchor="middle" fill="#fff" font-family="Heebo" font-weight="bold" font-size="8">טוני'ס</text>
+                    </svg>
                     <span>טוני'ס פיצה</span>
                 </div>
                 <div class="footer-links">
