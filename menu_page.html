@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התפריט שלנו - טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: "🍕";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            right: -50px;
+            top: -50px;
+            transform: rotate(-15deg);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 42px;
+            position: relative;
+            z-index: 1;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        .menu-navigation {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        .menu-navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .menu-navigation a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #f5f5f5;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .menu-navigation a:hover {
+            background-color: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .menu-category {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .category-header {
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .category-header h2 {
+            color: #d32f2f;
+            margin: 0;
+            font-size: 32px;
+        }
+        .category-header .icon {
+            font-size: 40px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .menu-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item:hover {
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.2);
+            transform: translateY(-3px);
+        }
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+        .menu-item h3 {
+            margin: 0;
+            color: #333;
+            font-size: 20px;
+        }
+        .menu-item .price {
+            background-color: #4caf50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .menu-item .description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .menu-item .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .menu-item .tag {
+            background-color: #f5f5f5;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+        .menu-item .tag.hot {
+            background-color: #ff5722;
+            color: white;
+        }
+        .menu-item .tag.new {
+            background-color: #2196f3;
+            color: white;
+        }
+        .menu-item .tag.vegan {
+            background-color: #4caf50;
+            color: white;
+        }
+        .menu-item .tag.gluten-free {
+            background-color: #ff9800;
+            color: white;
+        }
+        .best-seller {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 12px;
+            transform: rotate(-5deg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .size-options {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .size-options h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .size-options .sizes {
+            display: flex;
+            gap: 15px;
+        }
+        .size-options .size {
+            text-align: center;
+        }
+        .size-options .size-name {
+            font-size: 12px;
+            color: #666;
+        }
+        .size-options .size-price {
+            font-weight: bold;
+            color: #4caf50;
+        }
+        .footer-note {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff3cd;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .footer-note h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .footer-note p {
+            color: #856404;
+            margin: 5px 0;
+        }
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-navigation ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu-navigation {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>התפריט שלנו</h1>
+        <p>פיצות איטלקיות אותנטיות, פסטות טריות ועוד...</p>
+    </div>
+
+    <div class="container">
+        <!-- Menu Navigation -->
+        <nav class="menu-navigation">
+            <ul>
+                <li><a href="#pizzas"><span>🍕</span> פיצות</a></li>
+                <li><a href="#pasta"><span>🍝</span> פסטות</a></li>
+                <li><a href="#salads"><span>🥗</span> סלטים</a></li>
+                <li><a href="#starters"><span>🥖</span> מנות פתיחה</a></li>
+                <li><a href="#drinks"><span>🥤</span> משקאות</a></li>
+                <li><a href="#desserts"><span>🍰</span> קינוחים</a></li>
+                <li><a href="#deals"><span>💰</span> מבצעים</a></li>
+            </ul>
+        </nav>
+
+        <!-- Pizzas Section -->
+        <section id="pizzas" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🍕</span>
+                <h2>פיצות</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="best-seller">רב מכר!</span>
+                    <div class="menu-item-header">
+                        <h3>מרגריטה קלאסית</h3>
+                        <span class="price">₪45</span>
+                    </div>
+                    <p class="description">רוטב עגבניות, מוצרלה טרייה, בזיליקום ושמן זית</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag">קלאסי</span>
+                    </div>
+                    <div class="size-options">
+                        <h4>גדלים זמינים:</h4>
+                        <div class="sizes">
+                            <div class="size">
+                                <div class="size-name">אישית</div>
+                                <div class="size-price">₪35</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">משפחתית</div>
+                                <div class="size-price">₪45</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">ענקית</div>
+                                <div class="size-price">₪55</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>פפרוני חריפה</h3>
+                        <span class="price">₪52</span>
+                    </div>
+                    <p class="description">רוטב עגבניות, מוצרלה, נקניק פפרוני וצ'ילי</p>
+                    <div class="tags">
+                        <span class="tag hot">חריף</span>
+                        <span class="tag">בשרי</span>
+                    </div>
+                    <div class="size-options">
+                        <h4>גדלים זמינים:</h4>
+                        <div class="sizes">
+                            <div class="size">
+                                <div class="size-name">אישית</div>
+                                <div class="size-price">₪42</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">משפחתית</div>
+                                <div class="size-price">₪52</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">ענקית</div>
+                                <div class="size-price">₪62</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ירקות גריל</h3>
+                        <span class="price">₪48</span>
+                    </div>
+                    <p class="description">חצילים, קישואים, פלפלים צלויים, בצל סגול ועגבניות שרי</p>
+                    <div class="tags">
+                        <span class="tag vegan">טבעוני</span>
+                        <span class="tag">בריא</span>
+                    </div>
+                    <div class="size-options">
+                        <h4>גדלים זמינים:</h4>
+                        <div class="sizes">
+                            <div class="size">
+                                <div class="size-name">אישית</div>
+                                <div class="size-price">₪38</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">משפחתית</div>
+                                <div class="size-price">₪48</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">ענקית</div>
+                                <div class="size-price">₪58</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>טוני'ס ספיישל</h3>
+                        <span class="price">₪65</span>
+                    </div>
+                    <p class="description">שילוב מיוחד של 4 גבינות, פטריות טריות, בייקון ובצל מקורמל</p>
+                    <div class="tags">
+                        <span class="tag new">חדש!</span>
+                        <span class="tag">מומלץ השף</span>
+                    </div>
+                    <div class="size-options">
+                        <h4>גדלים זמינים:</h4>
+                        <div class="sizes">
+                            <div class="size">
+                                <div class="size-name">אישית</div>
+                                <div class="size-price">₪55</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">משפחתית</div>
+                                <div class="size-price">₪65</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">ענקית</div>
+                                <div class="size-price">₪75</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ים תיכונית</h3>
+                        <span class="price">₪58</span>
+                    </div>
+                    <p class="description">גבינת פטה, זיתי קלמטה, עגבניות מיובשות, בצל סגול וזעתר</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag">ישראלי</span>
+                    </div>
+                    <div class="size-options">
+                        <h4>גדלים זמינים:</h4>
+                        <div class="sizes">
+                            <div class="size">
+                                <div class="size-name">אישית</div>
+                                <div class="size-price">₪48</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">משפחתית</div>
+                                <div class="size-price">₪58</div>
+                            </div>
+                            <div class="size">
+                                <div class="size-name">ענקית</div>
+                                <div class="size-price">₪68</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ללא גלוטן</h3>
+                        <span class="price">₪55</span>
+                    </div>
+                    <p class="description">בסיס ללא גלוטן עם תוספות לבחירה</p>
+                    <div class="tags">
+                        <span class="tag gluten-free">ללא גלוטן</span>
+                        <span class="tag">מותאם אישית</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasta Section -->
+        <section id="pasta" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🍝</span>
+                <h2>פסטות</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>פנה ארביאטה</h3>
+                        <span class="price">₪42</span>
+                    </div>
+                    <p class="description">פסטה פנה ברוטב עגבניות חריף עם שום ופלפל חריף</p>
+                    <div class="tags">
+                        <span class="tag hot">חריף</span>
+                        <span class="tag">צמחוני</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ספגטי בולונז</h3>
+                        <span class="price">₪48</span>
+                    </div>
+                    <p class="description">ספגטי עם רוטב בולונז עשיר מבשר בקר טחון</p>
+                    <div class="tags">
+                        <span class="tag">בשרי</span>
+                        <span class="tag">קלאסי</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>פטוצ'יני אלפרדו</h3>
+                        <span class="price">₪52</span>
+                    </div>
+                    <p class="description">פסטה רחבה ברוטב שמנת עשיר עם פרמז'ן</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag">עשיר</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>רביולי גבינות</h3>
+                        <span class="price">₪55</span>
+                    </div>
+                    <p class="description">רביולי במילוי 3 גבינות ברוטב רוזה</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag new">חדש!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Salads Section -->
+        <section id="salads" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🥗</span>
+                <h2>סלטים</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>סלט קיסר</h3>
+                        <span class="price">₪38</span>
+                    </div>
+                    <p class="description">חסה, קרוטונים, פרמז'ן ורוטב קיסר</p>
+                    <div class="tags">
+                        <span class="tag">קלאסי</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>סלט יווני</h3>
+                        <span class="price">₪35</span>
+                    </div>
+                    <p class="description">עגבניות, מלפפונים, פטה, זיתים ובצל סגול</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag">בריא</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>סלט ניסואז</h3>
+                        <span class="price">₪45</span>
+                    </div>
+                    <p class="description">טונה, ביצה קשה, שעועית ירוקה, תפו"א וזיתים</p>
+                    <div class="tags">
+                        <span class="tag">דגים</span>
+                        <span class="tag">משביע</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Starters Section -->
+        <section id="starters" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🥖</span>
+                <h2>מנות פתיחה</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>לחם שום</h3>
+                        <span class="price">₪22</span>
+                    </div>
+                    <p class="description">לחם טרי עם חמאת שום ועשבי תיבול</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>כנפי באפלו</h3>
+                        <span class="price">₪35</span>
+                    </div>
+                    <p class="description">כנפיים חריפות עם רוטב צ'ילי וסלרי</p>
+                    <div class="tags">
+                        <span class="tag hot">חריף</span>
+                        <span class="tag">בשרי</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>מוצרלה סטיקס</h3>
+                        <span class="price">₪28</span>
+                    </div>
+                    <p class="description">אצבעות מוצרלה מטוגנות עם רוטב מרינרה</p>
+                    <div class="tags">
+                        <span class="tag">צמחוני</span>
+                        <span class="tag">ילדים</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Section -->
+        <section id="drinks" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🥤</span>
+                <h2>משקאות</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>משקאות קלים</h3>
+                        <span class="price">₪12</span>
+                    </div>
+                    <p class="description">קוקה קולה, ספרייט, פאנטה, מים מינרלים</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>בירות</h3>
+                        <span class="price">₪18</span>
+                    </div>
+                    <p class="description">מבחר בירות מהחבית ובבקבוק</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>יינות הבית</h3>
+                        <span class="price">₪25</span>
+                    </div>
+                    <p class="description">יין אדום/לבן בכוס</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desserts Section -->
+        <section id="desserts" class="menu-category">
+            <div class="category-header">
+                <span class="icon">🍰</span>
+                <h2>קינוחים</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>טירמיסו</h3>
+                        <span class="price">₪28</span>
+                    </div>
+                    <p class="description">קינוח איטלקי קלאסי עם קפה ומסקרפונה</p>
+                    <div class="tags">
+                        <span class="tag">מומלץ</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>עוגת שוקולד</h3>
+                        <span class="price">₪25</span>
+                    </div>
+                    <p class="description">עוגת שוקולד חמה עם גלידת וניל</p>
+                    <div class="tags">
+                        <span class="tag">חם</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>גלידות</h3>
+                        <span class="price">₪18</span>
+                    </div>
+                    <p class="description">מבחר טעמים: וניל, שוקולד, תות</p>
+                    <div class="tags">
+                        <span class="tag">קר</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Section -->
+        <section id="deals" class="menu-category">
+            <div class="category-header">
+                <span class="icon">💰</span>
+                <h2>מבצעים מיוחדים</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="best-seller">הכי משתלם!</span>
+                    <div class="menu-item-header">
+                        <h3>מבצע זוגי</h3>
+                        <span class="price">₪99</span>
+                    </div>
+                    <p class="description">2 פיצות אישיות + 2 משקאות + קינוח לבחירה</p>
+                    <div class="tags">
+                        <span class="tag hot">מבצע חם</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ארוחה משפחתית</h3>
+                        <span class="price">₪180</span>
+                    </div>
+                    <p class="description">2 פיצות משפחתיות + סלט + 4 משקאות</p>
+                    <div class="tags">
+                        <span class="tag">משפחתי</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>עסקית צהריים</h3>
+                        <span class="price">₪45</span>
+                    </div>
+                    <p class="description">פיצה אישית/פסטה + משקה + קפה</p>
+                    <div class="tags">
+                        <span class="tag">11:00-15:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-note">
+            <h3>הערות חשובות</h3>
+            <p>🌾 ניתן להזמין בסיס ללא גלוטן בתוספת ₪10</p>
+            <p>🧀 ניתן להחליף לגבינה טבעונית בתוספת ₪8</p>
+            <p>📞 להזמנות מיוחדות ואירועים - צרו קשר: 03-1234567</p>
+            <p>💳 המחירים כוללים מע"מ | תיתכן תוספת משלוח באזורים מרוחקים</p>
+        </div>
+    </div>
+</body>
+</html>

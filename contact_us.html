@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צור קשר - טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .contact-info {
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        .info-icon {
+            font-size: 24px;
+            margin-left: 15px;
+            color: #d32f2f;
+        }
+        .info-content h3 {
+            margin: 0 0 5px 0;
+            color: #d32f2f;
+        }
+        .info-content p {
+            margin: 0;
+            color: #666;
+        }
+        .map-container {
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #d32f2f;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #b71c1c;
+        }
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+        .required {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>צור קשר</h1>
+        <p>נשמח לשמוע מכם!</p>
+    </div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>שלחו לנו הודעה</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">שם מלא <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">טלפון <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">אימייל</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">נושא הפנייה <span class="required">*</span></label>
+                        <select id="subject" name="subject" required>
+                            <option value="">בחר נושא</option>
+                            <option value="order">בעיה בהזמנה</option>
+                            <option value="feedback">משוב על המוצרים</option>
+                            <option value="catering">הזמנה לאירוע</option>
+                            <option value="complaint">תלונה</option>
+                            <option value="other">אחר</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">הודעה <span class="required">*</span></label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit">שלח הודעה</button>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>פרטי התקשרות</h2>
+                
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div class="info-content">
+                        <h3>כתובת</h3>
+                        <p>רחוב הרצל 123, תל אביב</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <div class="info-content">
+                        <h3>טלפון</h3>
+                        <p>03-1234567</p>
+                        <p>050-1234567 (WhatsApp)</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">📧</span>
+                    <div class="info-content">
+                        <h3>אימייל</h3>
+                        <p>info@tonispizzas.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">⏰</span>
+                    <div class="info-content">
+                        <h3>שעות פעילות</h3>
+                        <p>ראשון - חמישי: 11:00 - 23:00</p>
+                        <p>שישי: 11:00 - 15:00</p>
+                        <p>מוצ"ש: 30 דקות אחרי צאת השבת - 23:00</p>
+                    </div>
+                </div>
+                
+                <h3>עקבו אחרינו ברשתות החברתיות</h3>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="WhatsApp">💬</a>
+                </div>
+                
+                <!-- Map placeholder -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.0!2d34.7817!3d32.0853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDA1JzA3LjEiTiAzNMKwNDYnNTQuMSJF!5e0!3m2!1sen!2s!4v1234567890" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you would normally send the data to your server
+            // For now, we'll just show an alert
+            alert('תודה על פנייתך! נחזור אליך בהקדם האפשרי.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

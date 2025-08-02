@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מפת האתר - טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .sitemap-wrapper {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .sitemap-section {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-right: 4px solid #d32f2f;
+        }
+        .sitemap-section h2 {
+            color: #d32f2f;
+            margin: 0 0 20px 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+        .sitemap-section h2 .icon {
+            margin-left: 10px;
+            font-size: 28px;
+        }
+        .sitemap-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sitemap-links li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-right: 20px;
+        }
+        .sitemap-links li:before {
+            content: "◄";
+            position: absolute;
+            right: 0;
+            color: #d32f2f;
+            font-size: 12px;
+        }
+        .sitemap-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            display: block;
+        }
+        .sitemap-links a:hover {
+            color: #d32f2f;
+            text-decoration: underline;
+        }
+        .sitemap-links .description {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .footer-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        .footer-info h3 {
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        .footer-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .breadcrumb {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #d32f2f;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .sitemap-wrapper {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>מפת האתר</h1>
+        <p>ניווט קל ומהיר לכל דפי האתר שלנו</p>
+    </div>
+
+    <div class="container">
+        <div class="sitemap-wrapper">
+            <div class="breadcrumb">
+                <a href="/">דף הבית</a> ← מפת האתר
+            </div>
+
+            <div class="sitemap-grid">
+                <!-- דפים ראשיים -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">🏠</span> דפים ראשיים</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="/">דף הבית</a>
+                            <div class="description">ברוכים הבאים לטוני'ס פיצה</div>
+                        </li>
+                        <li>
+                            <a href="/about">אודות</a>
+                            <div class="description">הסיפור שלנו והערכים שלנו</div>
+                        </li>
+                        <li>
+                            <a href="/contact">צור קשר</a>
+                            <div class="description">דברו איתנו - טופס יצירת קשר ופרטי התקשרות</div>
+                        </li>
+                        <li>
+                            <a href="/locations">סניפים</a>
+                            <div class="description">מצאו את הסניף הקרוב אליכם</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- תפריט ומוצרים -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">🍕</span> תפריט ומוצרים</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="/menu">התפריט המלא</a>
+                            <div class="description">כל המנות והמבצעים שלנו</div>
+                        </li>
+                        <li>
+                            <a href="/menu/pizzas">פיצות</a>
+                            <div class="description">מבחר הפיצות המיוחדות שלנו</div>
+                        </li>
+                        <li>
+                            <a href="/menu/pasta">פסטות</a>
+                            <div class="description">פסטות איטלקיות אותנטיות</div>
+                        </li>
+                        <li>
+                            <a href="/menu/salads">סלטים</a>
+                            <div class="description">סלטים טריים ובריאים</div>
+                        </li>
+                        <li>
+                            <a href="/menu/drinks">משקאות</a>
+                            <div class="description">משקאות קלים וחמים</div>
+                        </li>
+                        <li>
+                            <a href="/menu/desserts">קינוחים</a>
+                            <div class="description">קינוחים מתוקים לסיום מושלם</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- הזמנות ומבצעים -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">🛒</span> הזמנות ומבצעים</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="/order-online">הזמנה אונליין</a>
+                            <div class="description">הזמינו ישירות לבית שלכם</div>
+                        </li>
+                        <li>
+                            <a href="/deals">מבצעים חמים</a>
+                            <div class="description">המבצעים הכי שווים שלנו</div>
+                        </li>
+                        <li>
+                            <a href="/loyalty">מועדון לקוחות</a>
+                            <div class="description">הצטרפו וקבלו הטבות בלעדיות</div>
+                        </li>
+                        <li>
+                            <a href="/catering">הזמנות לאירועים</a>
+                            <div class="description">פתרונות קייטרינג לכל אירוע</div>
+                        </li>
+                        <li>
+                            <a href="/gift-cards">כרטיסי מתנה</a>
+                            <div class="description">המתנה המושלמת לחובבי פיצה</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- מידע ומדיניות -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">📋</span> מידע ומדיניות</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="/delivery-info">מידע על משלוחים</a>
+                            <div class="description">אזורי משלוח וזמני הגעה</div>
+                        </li>
+                        <li>
+                            <a href="/return-policy">מדיניות החזרות</a>
+                            <div class="description">התנאים וההגבלות שלנו</div>
+                        </li>
+                        <li>
+                            <a href="/privacy">מדיניות פרטיות</a>
+                            <div class="description">כיצד אנו שומרים על המידע שלכם</div>
+                        </li>
+                        <li>
+                            <a href="/terms">תנאי שימוש</a>
+                            <div class="description">תנאי השימוש באתר</div>
+                        </li>
+                        <li>
+                            <a href="/accessibility">הצהרת נגישות</a>
+                            <div class="description">מחויבות שלנו לנגישות</div>
+                        </li>
+                        <li>
+                            <a href="/faq">שאלות נפוצות</a>
+                            <div class="description">תשובות לשאלות הנפוצות ביותר</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- קישורים נוספים -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">🔗</span> קישורים נוספים</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="/careers">דרושים</a>
+                            <div class="description">הצטרפו למשפחת טוני'ס</div>
+                        </li>
+                        <li>
+                            <a href="/franchise">זכיינות</a>
+                            <div class="description">פתחו סניף משלכם</div>
+                        </li>
+                        <li>
+                            <a href="/blog">הבלוג שלנו</a>
+                            <div class="description">מתכונים, טיפים וחדשות</div>
+                        </li>
+                        <li>
+                            <a href="/gallery">גלריה</a>
+                            <div class="description">תמונות מהמטבח ומהסניפים</div>
+                        </li>
+                        <li>
+                            <a href="/reviews">ביקורות לקוחות</a>
+                            <div class="description">מה הלקוחות שלנו אומרים</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- רשתות חברתיות -->
+                <div class="sitemap-section">
+                    <h2><span class="icon">📱</span> רשתות חברתיות</h2>
+                    <ul class="sitemap-links">
+                        <li>
+                            <a href="https://facebook.com/tonispizzas" target="_blank">Facebook</a>
+                            <div class="description">עקבו אחרינו בפייסבוק</div>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/tonispizzas" target="_blank">Instagram</a>
+                            <div class="description">תמונות מעוררות תיאבון</div>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/972501234567" target="_blank">WhatsApp</a>
+                            <div class="description">צ'אט ישיר איתנו</div>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com/tonispizzas" target="_blank">YouTube</a>
+                            <div class="description">סרטונים ומתכונים</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <h3>מידע נוסף</h3>
+                <p>📞 טלפון: 03-1234567 | 📧 אימייל: info@tonispizzas.com</p>
+                <p>⏰ שעות פעילות: ראשון-חמישי 11:00-23:00, שישי 11:00-15:00</p>
+                <p>📍 כתובת ראשית: רחוב הרצל 123, תל אביב</p>
+                <p style="margin-top: 20px; font-size: 14px; color: #999;">
+                    עדכון אחרון: ינואר 2024 | <a href="/sitemap.xml" style="color: #d32f2f;">Sitemap XML</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
