@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שאלות נפוצות - טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        .search-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .search-box h2 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-input:focus {
+            border-color: #d32f2f;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .category-btn {
+            background-color: white;
+            color: #333;
+            border: 2px solid #ddd;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        .category-btn:hover {
+            border-color: #d32f2f;
+            color: #d32f2f;
+        }
+        .category-btn.active {
+            background-color: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
+        }
+        .faq-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .faq-category-title {
+            color: #d32f2f;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item:hover {
+            background-color: #f9f9f9;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            padding: 10px;
+        }
+        .faq-question .icon {
+            font-size: 24px;
+            color: #d32f2f;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 10px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px 10px;
+        }
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .faq-answer ul {
+            color: #666;
+            margin: 10px 0;
+            padding-right: 20px;
+        }
+        .faq-answer li {
+            margin: 8px 0;
+        }
+        .contact-section {
+            background-color: #d32f2f;
+            color: white;
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .contact-method {
+            background-color: rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .contact-method:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .contact-method .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            .category-btn {
+                width: 200px;
+                text-align: center;
+            }
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>שאלות נפוצות</h1>
+        <p>כל התשובות לשאלות שלכם במקום אחד</p>
+    </div>
+
+    <div class="container">
+        <!-- Search Box -->
+        <div class="search-box">
+            <h2>איך נוכל לעזור לכם?</h2>
+            <input type="text" class="search-input" placeholder="חפשו שאלה..." id="searchInput">
+        </div>
+
+        <!-- Category Buttons -->
+        <div class="categories">
+            <button class="category-btn active" data-category="all">כל השאלות</button>
+            <button class="category-btn" data-category="orders">הזמנות ומשלוחים</button>
+            <button class="category-btn" data-category="menu">תפריט ומוצרים</button>
+            <button class="category-btn" data-category="payment">תשלום וחיוב</button>
+            <button class="category-btn" data-category="general">כללי</button>
+        </div>
+
+        <!-- FAQ Section - Orders -->
+        <section class="faq-section" data-category="orders">
+            <h2 class="faq-category-title">
+                <span>📦</span>
+                הזמנות ומשלוחים
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>מהם אזורי המשלוח שלכם?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>אנחנו מספקים משלוחים לאזורים הבאים:</p>
+                    <ul>
+                        <li>תל אביב והסביבה - עד 30 דקות</li>
+                        <li>רמת גן, גבעתיים - עד 35 דקות</li>
+                        <li>הרצליה, רעננה - עד 45 דקות</li>
+                        <li>פתח תקווה, בני ברק - עד 40 דקות</li>
+                    </ul>
+                    <p>לאזורים אחרים, אנא צרו קשר לבירור זמינות.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>מהו זמן המשלוח הממוצע?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>זמן המשלוח הממוצע הוא 30-45 דקות מרגע ביצוע ההזמנה. בשעות העומס (19:00-21:00) זמן המשלוח עשוי להתארך ל-60 דקות. אנחנו תמיד מעדכנים אתכם על זמן ההגעה המשוער.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם יש מינימום הזמנה למשלוח?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>כן, מינימום הזמנה למשלוח הוא 50 ₪. למשלוחים מעל 100 ₪ - המשלוח חינם! למשלוחים מתחת ל-100 ₪ יש תוספת של 10 ₪ למשלוח.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>איך אני יכול לעקוב אחר ההזמנה שלי?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>לאחר ביצוע ההזמנה תקבלו SMS עם קישור למעקב בזמן אמת. תוכלו לראות היכן נמצא השליח ומתי הוא צפוי להגיע. בנוסף, השליח יתקשר אליכם כשהוא בדרך.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section - Menu -->
+        <section class="faq-section" data-category="menu">
+            <h2 class="faq-category-title">
+                <span>🍕</span>
+                תפריט ומוצרים
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם יש לכם אפשרויות טבעוניות?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>בהחלט! יש לנו מגוון אפשרויות טבעוניות:</p>
+                    <ul>
+                        <li>פיצה טבעונית עם גבינה טבעונית</li>
+                        <li>פיצת ירקות ללא גבינה</li>
+                        <li>סלטים טבעוניים</li>
+                        <li>פסטה עם רוטב עגבניות</li>
+                    </ul>
+                    <p>ניתן להחליף כל גבינה רגילה לגבינה טבעונית בתוספת 8 ₪.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם יש לכם אפשרויות ללא גלוטן?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>כן! אנחנו מציעים בסיס פיצה ללא גלוטן בתוספת 10 ₪. הבסיס מוכן במטבח נפרד כדי למנוע זיהום צולב. בנוסף, יש לנו סלטים ומנות נוספות ללא גלוטן.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם אפשר להזמין חצי-חצי?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>בוודאי! בפיצות משפחתיות וענקיות ניתן להזמין חצי-חצי ללא תוספת מחיר. המחיר ייקבע לפי הפיצה היקרה מבין השתיים.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>מה הגדלים של הפיצות?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>אנחנו מציעים 3 גדלים:</p>
+                    <ul>
+                        <li>אישית - 22 ס"מ (4-6 משולשים)</li>
+                        <li>משפחתית - 35 ס"מ (8 משולשים)</li>
+                        <li>ענקית - 45 ס"מ (12 משולשים)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section - Payment -->
+        <section class="faq-section" data-category="payment">
+            <h2 class="faq-category-title">
+                <span>💳</span>
+                תשלום וחיוב
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>אילו אמצעי תשלום אתם מקבלים?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>אנחנו מקבלים:</p>
+                    <ul>
+                        <li>מזומן</li>
+                        <li>כרטיסי אשראי - כל החברות</li>
+                        <li>ביט/PayBox</li>
+                        <li>תשלום דרך האתר/אפליקציה</li>
+                        <li>תווי קנייה של חברות מזון</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם צריך לתת טיפ לשליח?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>הטיפ הוא לשיקול דעתכם ואינו חובה. אם הייתם מרוצים מהשירות, טיפ תמיד מוערך על ידי השליחים שלנו. ניתן להוסיף טיפ באפליקציה או לתת במזומן.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם אתם מוציאים חשבונית מס?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>כן, אנחנו מוציאים חשבונית מס/קבלה על כל הזמנה. החשבונית נשלחת במייל או SMS לפי בקשתכם. לחברות - ניתן לקבל חשבונית מס מלאה.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section - General -->
+        <section class="faq-section" data-category="general">
+            <h2 class="faq-category-title">
+                <span>ℹ️</span>
+                שאלות כלליות
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>מהן שעות הפעילות שלכם?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>שעות הפעילות שלנו:</p>
+                    <ul>
+                        <li>ראשון - חמישי: 11:00 - 23:00</li>
+                        <li>שישי: 11:00 - 15:00</li>
+                        <li>מוצאי שבת: 30 דקות אחרי צאת השבת - 23:00</li>
+                    </ul>
+                    <p>בחגים ובימים מיוחדים ייתכנו שינויים - נעדכן באתר ובעמוד הפייסבוק.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם המקום כשר?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>כן, כל סניפי טוני'ס פיצה כשרים למהדרין בהשגחת הרבנות המקומית. תעודת הכשרות מוצגת בכל סניף ומתעדכנת באופן שוטף.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>האם אפשר להזמין לאירועים?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>בהחלט! אנחנו מספקים שירותי קייטרינג לאירועים בכל גודל:</p>
+                    <ul>
+                        <li>ימי הולדת</li>
+                        <li>אירועי חברה</li>
+                        <li>מסיבות פרטיות</li>
+                        <li>אירועי בר/בת מצווה</li>
+                    </ul>
+                    <p>צרו קשר לקבלת הצעת מחיר מותאמת אישית.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>יש לכם מועדון לקוחות?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>כן! מועדון הלקוחות שלנו מציע:</p>
+                    <ul>
+                        <li>10% הנחה קבועה על כל הזמנה</li>
+                        <li>פיצה בחינם ביום ההולדת</li>
+                        <li>מבצעים בלעדיים לחברי מועדון</li>
+                        <li>צבירת נקודות והמרה להטבות</li>
+                    </ul>
+                    <p>ההצטרפות חינם! הירשמו באתר או באפליקציה.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2>לא מצאתם תשובה לשאלה שלכם?</h2>
+            <p>אנחנו כאן כדי לעזור! צרו איתנו קשר בכל דרך נוחה לכם</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="icon">📞</div>
+                    <a href="tel:03-1234567">03-1234567</a>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">💬</div>
+                    <a href="https://wa.me/972501234567">WhatsApp</a>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">📧</div>
+                    <a href="mailto:info@tonispizzas.com">שלחו מייל</a>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">📱</div>
+                    <a href="#">צ'אט באתר</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Category filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter sections
+                const category = btn.getAttribute('data-category');
+                document.querySelectorAll('.faq-section').forEach(section => {
+                    if (category === 'all' || section.getAttribute('data-category') === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    // Show parent section
+                    item.closest('.faq-section').style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show all sections if search is empty
+            if (searchTerm === '') {
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.style.display = 'block';
+                });
+                // Apply current category filter
+                document.querySelector('.category-btn.active').click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="50" fill="white" opacity="0.1">🍕</text></svg>');
+            background-size: 100px;
+            opacity: 0.1;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 48px;
+            position: relative;
+            z-index: 1;
+        }
+        .header p {
+            margin: 15px 0 0 0;
+            font-size: 22px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        .story-section {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .story-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .story-header h2 {
+            color: #d32f2f;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .story-header .divider {
+            width: 100px;
+            height: 3px;
+            background-color: #d32f2f;
+            margin: 0 auto;
+        }
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .story-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+        .story-text p {
+            margin-bottom: 20px;
+        }
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .timeline {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        .timeline h3 {
+            text-align: center;
+            color: #d32f2f;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .timeline-items {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-items::before {
+            content: "";
+            position: absolute;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #d32f2f;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: 45%;
+            position: relative;
+        }
+        .timeline-year {
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        .values-section {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(211, 47, 47, 0.2);
+        }
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            color: #d32f2f;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .team-section {
+            background-color: #f9f9f9;
+            padding: 50px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .team-member-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .team-member-info h4 {
+            color: #d32f2f;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        .team-member-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        .cta-section {
+            background-color: #d32f2f;
+            color: white;
+            padding: 60px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #d32f2f;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            .timeline-items::before {
+                right: 30px;
+            }
+            .timeline-item, .timeline-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-right: 60px;
+            }
+            .timeline-content {
+                width: 100%;
+            }
+            .timeline-year {
+                right: 30px;
+                transform: translate(50%, -50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>הסיפור שלנו</h1>
+        <p>מסורת משפחתית של טעם, איכות ואהבה לפיצה</p>
+    </div>
+
+    <div class="container">
+        <!-- Our Story Section -->
+        <section class="story-section">
+            <div class="story-header">
+                <h2>ברוכים הבאים למשפחת טוני'ס</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <p>
+                        <strong>מאז 1985,</strong> טוני'ס פיצה מגישה את הפיצות הטובות ביותר בישראל. 
+                        מה שהתחיל כחלום של משפחה איטלקית קטנה, הפך למוסד קולינרי אהוב עם סניפים ברחבי הארץ.
+                    </p>
+                    <p>
+                        הסיפור שלנו מתחיל עם <strong>אנטוניו "טוני" רוסי,</strong> שהגיע לישראל מנאפולי עם מתכונים 
+                        משפחתיים שעברו מדור לדור. טוני האמין שפיצה טובה היא יותר מסתם אוכל - היא חוויה שמחברת אנשים.
+                    </p>
+                    <p>
+                        עד היום, אנחנו משתמשים באותם מתכונים מקוריים, עם אותה התשוקה והמסירות לאיכות. 
+                        כל פיצה נאפית בתנור אבן מסורתי, עם המרכיבים הטריים והאיכותיים ביותר.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="https://via.placeholder.com/600x400/d32f2f/ffffff?text=טוני'ס+פיצה+1985" alt="טוני'ס פיצה - ההתחלה">
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline">
+            <h3>אבני דרך בהיסטוריה שלנו</h3>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-year">1985</div>
+                    <div class="timeline-content">
+                        <h4>ההתחלה</h4>
+                        <p>טוני רוסי פותח את הפיצרייה הראשונה בתל אביב</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">1992</div>
+                    <div class="timeline-content">
+                        <h4>התרחבות</h4>
+                        <p>פתיחת סניף שני בירושלים והתחלת המשלוחים</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h4>חדשנות</h4>
+                        <p>השקת האפליקציה הראשונה להזמנות אונליין בישראל</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h4>קיימות</h4>
+                        <p>מעבר לאריזות ידידותיות לסביבה ותפריט טבעוני מורחב</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="story-header">
+                <h2>הערכים שלנו</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌾</div>
+                    <h3>איכות ללא פשרות</h3>
+                    <p>אנחנו משתמשים רק במרכיבים הטריים והאיכותיים ביותר, ללא חומרים משמרים או תוספים מלאכותיים</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>אהבה למקצוע</h3>
+                    <p>כל פיצה נעשית באהבה ותשומת לב לפרטים הקטנים, בדיוק כמו שטוני היה עושה</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">👨‍👩‍👧‍👦</div>
+                    <h3>משפחתיות</h3>
+                    <p>אנחנו מאמינים שארוחה טובה מאחדת משפחות וחברים, וזו המטרה שלנו בכל פיצה</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>אחריות סביבתית</h3>
+                    <p>מחויבים לשמירה על הסביבה עם אריזות מתכלות ומיחזור מלא</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>שירות מעולה</h3>
+                    <p>הלקוחות שלנו הם המשפחה שלנו, ואנחנו דואגים לחוויה מושלמת מההזמנה ועד הביס האחרון</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>חדשנות</h3>
+                    <p>משלבים מסורת עם חדשנות כדי להביא לכם את החוויה הטובה ביותר</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="story-header">
+                <h2>הצוות שלנו</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x250/666/ffffff?text=מרקו+רוסי" alt="מרקו רוסי">
+                    <div class="team-member-info">
+                        <h4>מרקו רוסי</h4>
+                        <p>מנכ"ל ובנו של טוני</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x250/666/ffffff?text=שרה+כהן" alt="שרה כהן">
+                    <div class="team-member-info">
+                        <h4>שרה כהן</h4>
+                        <p>שפית ראשית</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x250/666/ffffff?text=דני+לוי" alt="דני לוי">
+                    <div class="team-member-info">
+                        <h4>דני לוי</h4>
+                        <p>מנהל תפעול</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x250/666/ffffff?text=מיכל+דוד" alt="מיכל דוד">
+                    <div class="team-member-info">
+                        <h4>מיכל דוד</h4>
+                        <p>מנהלת שיווק</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>בואו להיות חלק מהמשפחה</h2>
+            <p>הצטרפו לאלפי הלקוחות המרוצים שלנו וטעמו את ההבדל</p>
+            <a href="/menu" class="cta-button">צפו בתפריט שלנו</a>
+        </section>
+    </div>
+</body>
+</html>
