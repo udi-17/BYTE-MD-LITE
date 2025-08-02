@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רכיב התאמה אישית לפיצה - דוגמה</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Hebrew, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .pizza-customizer {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .pizza-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .pizza-header h2 {
+            color: #d32f2f;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .pizza-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toppings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .topping-item {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .topping-item:hover {
+            border-color: #d32f2f;
+            transform: translateY(-2px);
+        }
+        
+        .topping-item.selected {
+            border-color: #4caf50;
+            background-color: #e8f5e9;
+        }
+        
+        .topping-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .topping-name {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .topping-price {
+            font-size: 16px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .check-mark {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #4caf50;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .topping-item.selected .check-mark {
+            display: flex;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .size-option {
+            flex: 1;
+            min-width: 120px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .size-option:hover {
+            border-color: #d32f2f;
+        }
+        
+        .size-option.selected {
+            border-color: #d32f2f;
+            background-color: #ffebee;
+        }
+        
+        .size-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .size-description {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .size-price {
+            font-size: 20px;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #d32f2f;
+            background-color: white;
+            color: #d32f2f;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #d32f2f;
+            color: white;
+        }
+        
+        .quantity-display {
+            font-size: 24px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .summary {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .add-to-cart-btn {
+            width: 100%;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #b71c1c;
+            transform: scale(1.02);
+        }
+        
+        .mobile-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .mobile-note h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .mobile-note p {
+            color: #856404;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 480px) {
+            .toppings-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .size-options {
+                flex-direction: column;
+            }
+            
+            .topping-item {
+                padding: 10px;
+            }
+            
+            .topping-icon {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-note">
+        <h3>הערה למפתחים</h3>
+        <p>רכיב זה צריך להיות זמין גם באתר וגם באפליקציה</p>
+        <p>וודאו שה-API תומך בשליחת תוספות מהאפליקציה</p>
+    </div>
+
+    <div class="pizza-customizer">
+        <div class="pizza-header">
+            <h2>🍕 התאמה אישית לפיצה</h2>
+            <p>בחרו גודל ותוספות לפיצה שלכם</p>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="section">
+            <h3 class="section-title">
+                <span>📏</span>
+                בחרו גודל
+            </h3>
+            <div class="size-options">
+                <div class="size-option" data-size="personal" data-price="35">
+                    <div class="size-name">אישית</div>
+                    <div class="size-description">22 ס"מ</div>
+                    <div class="size-price">₪35</div>
+                </div>
+                <div class="size-option selected" data-size="family" data-price="45">
+                    <div class="size-name">משפחתית</div>
+                    <div class="size-description">35 ס"מ</div>
+                    <div class="size-price">₪45</div>
+                </div>
+                <div class="size-option" data-size="xl" data-price="55">
+                    <div class="size-name">ענקית</div>
+                    <div class="size-description">45 ס"מ</div>
+                    <div class="size-price">₪55</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toppings Selection -->
+        <div class="section">
+            <h3 class="section-title">
+                <span>🧀</span>
+                תוספות (₪5 לתוספת)
+            </h3>
+            <div class="toppings-grid">
+                <div class="topping-item" data-topping="extra-cheese" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🧀</div>
+                    <div class="topping-name">גבינה נוספת</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+                <div class="topping-item" data-topping="mushrooms" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🍄</div>
+                    <div class="topping-name">פטריות</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+                <div class="topping-item" data-topping="olives" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🫒</div>
+                    <div class="topping-name">זיתים</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+                <div class="topping-item" data-topping="onion" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🧅</div>
+                    <div class="topping-name">בצל</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+                <div class="topping-item" data-topping="peppers" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🌶️</div>
+                    <div class="topping-name">פלפלים</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+                <div class="topping-item" data-topping="corn" data-price="5">
+                    <div class="check-mark">✓</div>
+                    <div class="topping-icon">🌽</div>
+                    <div class="topping-name">תירס</div>
+                    <div class="topping-price">+₪5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="section">
+            <h3 class="section-title">
+                <span>🔢</span>
+                כמות
+            </h3>
+            <div class="quantity-selector">
+                <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                <div class="quantity-display" id="quantity">1</div>
+                <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary">
+            <h3 class="summary-title">סיכום הזמנה</h3>
+            <div class="summary-item">
+                <span>פיצה משפחתית</span>
+                <span>₪45</span>
+            </div>
+            <div id="toppings-summary"></div>
+            <div class="summary-item">
+                <span>כמות</span>
+                <span id="quantity-summary">1</span>
+            </div>
+            <div class="summary-total">
+                <span>סה"כ</span>
+                <span id="total-price">₪45</span>
+            </div>
+        </div>
+
+        <button class="add-to-cart-btn" onclick="addToCart()">
+            הוסף לסל
+        </button>
+    </div>
+
+    <script>
+        // State management
+        let selectedSize = 'family';
+        let basePrice = 45;
+        let selectedToppings = [];
+        let quantity = 1;
+
+        // Size selection
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedSize = this.dataset.size;
+                basePrice = parseInt(this.dataset.price);
+                updatePrice();
+            });
+        });
+
+        // Topping selection
+        document.querySelectorAll('.topping-item').forEach(topping => {
+            topping.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                const toppingName = this.dataset.topping;
+                const toppingPrice = parseInt(this.dataset.price);
+                
+                if (this.classList.contains('selected')) {
+                    selectedToppings.push({
+                        name: this.querySelector('.topping-name').textContent,
+                        price: toppingPrice
+                    });
+                } else {
+                    selectedToppings = selectedToppings.filter(t => t.name !== this.querySelector('.topping-name').textContent);
+                }
+                
+                updatePrice();
+            });
+        });
+
+        // Quantity management
+        function updateQuantity(change) {
+            quantity = Math.max(1, quantity + change);
+            document.getElementById('quantity').textContent = quantity;
+            document.getElementById('quantity-summary').textContent = quantity;
+            updatePrice();
+        }
+
+        // Price calculation
+        function updatePrice() {
+            const toppingsPrice = selectedToppings.reduce((sum, topping) => sum + topping.price, 0);
+            const unitPrice = basePrice + toppingsPrice;
+            const totalPrice = unitPrice * quantity;
+            
+            // Update toppings summary
+            const toppingsSummaryEl = document.getElementById('toppings-summary');
+            toppingsSummaryEl.innerHTML = selectedToppings.map(topping => 
+                `<div class="summary-item">
+                    <span>${topping.name}</span>
+                    <span>₪${topping.price}</span>
+                </div>`
+            ).join('');
+            
+            // Update total price
+            document.getElementById('total-price').textContent = `₪${totalPrice}`;
+        }
+
+        // Add to cart function
+        function addToCart() {
+            const orderData = {
+                size: selectedSize,
+                basePrice: basePrice,
+                toppings: selectedToppings,
+                quantity: quantity,
+                totalPrice: (basePrice + selectedToppings.reduce((sum, t) => sum + t.price, 0)) * quantity
+            };
+            
+            console.log('Order data:', orderData);
+            alert('המוצר נוסף לסל בהצלחה!');
+            
+            // Here you would send this data to your API
+            // For mobile app, ensure the API endpoint accepts toppings array
+        }
+    </script>
+</body>
+</html>
