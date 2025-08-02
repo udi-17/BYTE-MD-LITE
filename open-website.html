@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פתיחת אתר טוני'ס פיצה</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #e63946, #f77f00);
+            color: white;
+            direction: rtl;
+        }
+        
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .buttons {
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: white;
+            color: #e63946;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🍕</div>
+        <h1>ברוכים הבאים לאתר טוני'ס פיצה!</h1>
+        <p>לחץ על אחד מהקישורים כדי לפתוח את האתר:</p>
+        
+        <div class="buttons">
+            <a href="http://localhost:3000" class="btn" target="_blank">localhost:3000</a>
+            <a href="http://127.0.0.1:3000" class="btn" target="_blank">127.0.0.1:3000</a>
+        </div>
+        
+        <div class="status">
+            <p><strong>בדוק שהשרת רץ:</strong></p>
+            <p>פתח Terminal/Command Prompt והרץ: <code>npm run website</code></p>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+            אם האתר לא נפתח, נסה דפדפן אחר או בדוק שחומת האש לא חוסמת את הפורט 3000
+        </p>
+    </div>
+
+    <script>
+        // נסה לפתוח את האתר אוטומטיטי כעבור 3 שניות
+        setTimeout(() => {
+            if (confirm('האם תרצה לפתוח את אתר טוני\'ס פיצה עכשיו?')) {
+                window.open('http://localhost:3000', '_blank');
+            }
+        }, 3000);
+        
+        // בדוק אם השרת פועל
+        fetch('http://localhost:3000')
+            .then(response => {
+                if (response.ok) {
+                    document.querySelector('.status').innerHTML = 
+                        '<p style="color: #28a745;"><strong>✅ השרת פועל תקין!</strong></p>';
+                }
+            })
+            .catch(error => {
+                document.querySelector('.status').innerHTML = 
+                    '<p style="color: #dc3545;"><strong>❌ השרת לא פועל - הרץ: npm run website</strong></p>';
+            });
+    </script>
+</body>
+</html>
