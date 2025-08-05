@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קישורים מהירים - טוני'ס פיצה</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: #ff6b6b;
+        }
+
+        .link-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .link-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .link-description {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        .main-website {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .main-website .link-title,
+        .main-website .link-description {
+            color: white;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo pulse">🍕</div>
+        <h1>טוני'ס פיצה</h1>
+        <p class="subtitle">קישורים מהירים לאתר שלנו</p>
+        
+        <div class="links-grid">
+            <a href="https://www.tonispizzas.com" class="link-card main-website" target="_blank">
+                <span class="link-icon">🏠</span>
+                <div class="link-title">האתר הראשי</div>
+                <div class="link-description">בקר באתר הראשי שלנו להזמנות ומבצעים</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/menu" class="link-card" target="_blank">
+                <span class="link-icon">📋</span>
+                <div class="link-title">תפריט</div>
+                <div class="link-description">צפה בתפריט המלא שלנו עם כל הפיצות והמנות</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/order" class="link-card" target="_blank">
+                <span class="link-icon">🛒</span>
+                <div class="link-title">הזמנה מהירה</div>
+                <div class="link-description">הזמן פיצה עכשיו עם משלוח מהיר</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/locations" class="link-card" target="_blank">
+                <span class="link-icon">📍</span>
+                <div class="link-title">סניפים</div>
+                <div class="link-description">מצא את הסניף הקרוב אליך</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/deals" class="link-card" target="_blank">
+                <span class="link-icon">🎉</span>
+                <div class="link-title">מבצעים</div>
+                <div class="link-description">מבצעים מיוחדים והטבות בלעדיות</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/contact" class="link-card" target="_blank">
+                <span class="link-icon">📞</span>
+                <div class="link-title">צור קשר</div>
+                <div class="link-description">טלפון, וואטסאפ ופרטי התקשרות</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/about" class="link-card" target="_blank">
+                <span class="link-icon">ℹ️</span>
+                <div class="link-title">אודות</div>
+                <div class="link-description">למד על ההיסטוריה והערכים שלנו</div>
+            </a>
+            
+            <a href="https://www.tonispizzas.com/reviews" class="link-card" target="_blank">
+                <span class="link-icon">⭐</span>
+                <div class="link-title">ביקורות</div>
+                <div class="link-description">מה הלקוחות שלנו אומרים עלינו</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 טוני'ס פיצה - כל הזכויות שמורות</p>
+            <p>הפיצה הטובה ביותר בעיר! 🍕</p>
+        </div>
+    </div>
+</body>
+</html>
