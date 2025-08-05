@@ -1,13 +1,272 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="" content="">
-    <title>BYTE-LITE</title>
-    <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/BYTE-MD-LITE.jpeg" type="image/x-icon" />
-  </head>
-  <body>
-    <h1>Bot is active</h1>
-  </body>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="קישורים מהירים לאתר טוניס פיצה - הזמנות, תפריט, צור קשר ועוד">
+    <title>קישורים מהירים - טוניס פיצה</title>
+    <link rel="shortcut icon" href="🍕" type="text/plain" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .pizza-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .links-grid {
+            padding: 40px 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #ff6b6b;
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .link-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .link-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .main-site-btn {
+            display: block;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 30px auto;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .main-site-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+            
+            .link-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="pizza-icon">🍕</span>
+            <h1>טוניס פיצה</h1>
+            <p>קישורים מהירים לכל מה שאתם צריכים</p>
+        </div>
+
+        <a href="https://www.tonispizzas.com" class="main-site-btn">
+            🏠 לאתר הראשי
+        </a>
+
+        <div class="links-grid">
+            <a href="https://www.tonispizzas.com/menu" class="link-card">
+                <span class="link-icon">📋</span>
+                <div class="link-title">תפריט</div>
+                <div class="link-description">עיינו בתפריט המלא שלנו עם כל הפיצות והמנות הטעימות</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/order" class="link-card">
+                <span class="link-icon">🛒</span>
+                <div class="link-title">הזמנה</div>
+                <div class="link-description">הזמינו פיצה ישירות דרך האתר - מהיר וקל</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/locations" class="link-card">
+                <span class="link-icon">📍</span>
+                <div class="link-title">סניפים</div>
+                <div class="link-description">מצאו את הסניף הקרוב אליכם</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/contact" class="link-card">
+                <span class="link-icon">📞</span>
+                <div class="link-title">צור קשר</div>
+                <div class="link-description">פרטי קשר ושעות פעילות</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/specials" class="link-card">
+                <span class="link-icon">🎉</span>
+                <div class="link-title">מבצעים</div>
+                <div class="link-description">המבצעים והקופונים הכי חמים שלנו</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/delivery" class="link-card">
+                <span class="link-icon">🚚</span>
+                <div class="link-title">משלוחים</div>
+                <div class="link-description">מידע על משלוחים ואזורי חלוקה</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/reviews" class="link-card">
+                <span class="link-icon">⭐</span>
+                <div class="link-title">ביקורות</div>
+                <div class="link-description">ראו מה הלקוחות שלנו אומרים עלינו</div>
+            </a>
+
+            <a href="https://www.tonispizzas.com/about" class="link-card">
+                <span class="link-icon">ℹ️</span>
+                <div class="link-title">אודותינו</div>
+                <div class="link-description">הסיפור שלנו ומה שמייחד אותנו</div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 טוניס פיצה - כל הזכויות שמורות</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/tonispizzas" title="Facebook">📘</a>
+                <a href="https://www.instagram.com/tonispizzas" title="Instagram">📷</a>
+                <a href="https://wa.me/1234567890" title="WhatsApp">💬</a>
+                <a href="tel:+1234567890" title="טלפון">📞</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                this.style.color = 'white';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'white';
+                this.style.color = 'inherit';
+            });
+        });
+
+        // Add click tracking (optional)
+        document.querySelectorAll('.link-card, .main-site-btn').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Link clicked:', this.href);
+            });
+        });
+    </script>
+</body>
 </html>
