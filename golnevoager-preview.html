@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גולנבואגר - קיוסק המבורגרים</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            direction: rtl;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #d10a11;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .menu-section {
+            flex: 2;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .cart-section {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            background: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .category-tab.active {
+            background: #d10a11;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .menu-card {
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .menu-card:hover {
+            border-color: #d10a11;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(209, 10, 17, 0.2);
+        }
+        
+        .menu-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #f7931e, #ff6b35);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .menu-title {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .menu-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .menu-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d10a11;
+            margin-bottom: 15px;
+        }
+        
+        .add-button {
+            width: 100%;
+            padding: 12px;
+            background: #d10a11;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .add-button:hover {
+            background: #b00d0e;
+            transform: translateY(-2px);
+        }
+        
+        .cart-title {
+            color: #333;
+            margin: 0 0 20px 0;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+            font-size: 1.1rem;
+        }
+        
+        .demo-notice {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1976d2;
+        }
+        
+        .demo-notice strong {
+            color: #d32f2f;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">גולנבואגר 🍔</h1>
+        <p class="subtitle">הטעם האמיתי של ישראל</p>
+    </header>
+
+    <main class="main-content">
+        <section class="menu-section">
+            <div class="demo-notice">
+                <strong>🚀 תצוגה מקדימה!</strong><br>
+                זהו קובץ HTML סטטי. הקיוסק המלא עם React זמין ב-<code>http://localhost:3000</code>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="category-tab active">הכל</button>
+                <button class="category-tab">המבורגרים</button>
+                <button class="category-tab">תוספות</button>
+                <button class="category-tab">שתייה</button>
+                <button class="category-tab">סלטים</button>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-image">🍔</div>
+                    <h3 class="menu-title">גולנבואגר קלאסי</h3>
+                    <p class="menu-description">המבורגר בקר טרי עם חסה, עגבניה, בצל וגבינה צהובה</p>
+                    <div class="menu-price">₪32.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-image">🍔🍔</div>
+                    <h3 class="menu-title">גולנבואגר כפול</h3>
+                    <p class="menu-description">שני קציצות בקר עם גבינה כפולה וכל התוספות</p>
+                    <div class="menu-price">₪45.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-image">🧀🍔</div>
+                    <h3 class="menu-title">גולנבואגר צ'יזבורגר</h3>
+                    <p class="menu-description">המבורגר עם גבינה צהובה נמסה וטעימה</p>
+                    <div class="menu-price">₪35.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-image">🍟</div>
+                    <h3 class="menu-title">צ'יפס גולנבואגר</h3>
+                    <p class="menu-description">צ'יפס קריספי וחם עם מלח ים</p>
+                    <div class="menu-price">₪18.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-image">🥤</div>
+                    <h3 class="menu-title">שתייה קלה</h3>
+                    <p class="menu-description">קוקה קולה, ספרייט או פפסי - בחירתך</p>
+                    <div class="menu-price">₪12.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+                
+                <div class="menu-card">
+                    <div class="menu-image">🥤</div>
+                    <h3 class="menu-title">מילקשייק וניל</h3>
+                    <p class="menu-description">מילקשייק קרם וניל עשיר וטעים</p>
+                    <div class="menu-price">₪22.90</div>
+                    <button class="add-button">הוסף לסל 🛒</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart-section">
+            <h2 class="cart-title">סל הקניות שלך</h2>
+            <div class="empty-cart">
+                הסל שלך ריק<br />
+                בחר פריטים מהתפריט
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple demo functionality
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        document.querySelectorAll('.add-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.textContent = 'נוסף! ✅';
+                this.style.background = '#28a745';
+                setTimeout(() => {
+                    this.textContent = 'הוסף לסל 🛒';
+                    this.style.background = '#d10a11';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
