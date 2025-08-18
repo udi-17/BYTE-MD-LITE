@@ -1,57 +1,94 @@
+# 🍔 קיוסק גולנבואגר
 
-## <p align="center"> BYTE-V.lite WHATSAPP BOT
-<br>
-<strong>Looking for the BYTE-MD? then</strong>
-<a href="https://github.com/HyHamza/BYTE-MD">Click Here</a>
+קיוסק דיגיטלי מודרני בסגנון מקדונלדס להזמנת המבורגרים ומוצרי מזון אחרים.
 
+## ✨ תכונות
 
-<img src="https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/BYTE-MD-LITE.jpeg" width="540" height="auto" />
-</p>     
+- 🎨 ממשק משתמש מודרני ויפה
+- 📱 עיצוב רספונסיבי לכל המכשירים
+- 🗂️ קטגוריות מוצרים מאורגנות
+- 🛒 סל קניות מתקדם
+- 💰 חישוב מחירים אוטומטי
+- 🌐 תמיכה מלאה בעברית ו-RTL
+- 🎭 אנימציות ואפקטים ויזואליים
 
-### Setup
+## 🚀 התקנה והפעלה
 
-**DEPLOY ON HEROKU**
-   - **Click [`FORK`](https://github.com/HyHamza/BYTE-MD-LITE/fork) and `Star ⭐ Repository` for Courage.**
-   - You will get a session ID in WhatsApp, copy the ID only.
-   - **If you don't have an account on [Heroku](https://signup.heroku.com/), [create an account now](https://signup.heroku.com/).**
-</p>
-🌟 Hamza's Portfolio 🌟
+### דרישות מקדימות
+- Node.js (גרסה 14 ומעלה)
+- npm או yarn
 
-<a href="https://HyHamza.vercel.app/">Click Here</a>
+### שלבי התקנה
 
-**Linking methods**
+1. **שכפול הפרויקט**
+```bash
+git clone <repository-url>
+cd golnevoager-kiosk
+```
 
-##  Pairing link:1
+2. **התקנת חבילות**
+```bash
+npm install
+```
 
-<a href="https://byte-session.vercel.app/"><img src="https://img.shields.io/badge/LOGIN%20WITH-PAIR%20CODE-red" alt="LOGIN WITH PAIR CODE" width="250"></a>
+3. **הפעלת השרת**
+```bash
+npm start
+```
 
-## Pairing link:2 (if above isn't working)
+4. **גישה לאפליקציה**
+פתח את הדפדפן בכתובת: `http://localhost:3000`
 
-<a href="https://byte-session-2.vercel.app/"><img src="https://img.shields.io/badge/LOGIN%20WITH-PAIR%20CODE2-red" alt="LOGIN WITH PAIR CODE" width="250"></a>
-## DEPLOY IN HEROKU
+## 🛠️ בנייה לפרודקשן
 
- [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/HyHamza/BYTE-MD-LITE/)
+```bash
+npm run build
+```
 
-   </details>
-</P>
+## 📁 מבנה הפרויקט
 
+```
+src/
+├── App.tsx          # הקומפוננטה הראשית
+├── App.css          # סגנונות גלובליים
+└── index.tsx        # נקודת הכניסה
 
+public/
+├── index.html       # קובץ HTML ראשי
+└── manifest.json    # הגדרות PWA
+```
 
+## 🎨 טכנולוגיות
 
+- **React 18** - ספריית UI
+- **TypeScript** - תמיכה בטיפוסים
+- **Styled Components** - עיצוב מודולרי
+- **CSS Grid & Flexbox** - עיצוב רספונסיבי
 
-## Contributions
+## 📱 תמיכה במכשירים
 
-Contributions to BYTE-MD-LITE are welcome! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+- 🖥️ מחשבים שולחניים
+- 📱 טלפונים חכמים
+- 📱 טאבלטים
+- 🖥️ מסכי מגע
 
-## License
+## 🌟 תכונות עתידיות
 
-The BYTE-MD-LITE is released.
+- [ ] מערכת תשלומים
+- [ ] היסטוריית הזמנות
+- [ ] מערכת נאמנות
+- [ ] הזמנות מראש
+- [ ] התראות בזמן אמת
 
-Enjoy the diverse features of the BYTE-MD-LITE  to enhance your conversations and make your WhatsApp experience more interesting!
+## 🤝 תרומה לפרויקט
 
-## Developer:
-- [**Hamza**](https://wa.me/923072380380)
+אנחנו תמיד שמחים לקבל תרומות! אם יש לך רעיונות לשיפור או תיקון באגים, אנא צור issue או pull request.
 
-**Thanks to:**
-## Allah
+## 📄 רישיון
+
+פרויקט זה מוגן תחת רישיון MIT.
+
+---
+
+**גולנבואגר** - הטעם האמיתי של ישראל! 🇮🇱🍔
 
